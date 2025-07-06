@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZHA Nova Online Mart</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Updated Header */
+    header {
+      background: linear-gradient(90deg, #000000, #1a1a1a);
+      color: #ffbf00;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      flex-wrap: nowrap;
+      gap: 20px;
+      box-shadow: 0 4px 10px rgba(255, 191, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo img {
+      height: 60px;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 4px #ffbf00);
+    }
+
+    .animated-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #ffbf00;
+      letter-spacing: 3px;
+      animation: glow 3s ease-in-out infinite alternate;
+      user-select: none;
+      flex-grow: 1;
+      text-align: center;
+      min-width: 300px;
+      text-shadow: 0 0 5px #ffbf00;
+      text-transform: uppercase;
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #ffbf00, 0 0 20px #ffbf00;
+        color: #ffd633;
+      }
+      100% {
+        text-shadow: 0 0 25px #ffbf00, 0 0 40px #ffbf00, 0 0 60px #ffbf00;
+        color: #fff200;
+      }
+    }
+
+    .header-social a {
+      color: #ffbf00;
+      font-size: 28px;
+      margin-left: 20px;
+      transition: color 0.4s ease, transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .header-social a:hover,
+    .header-social a:focus {
+      color: #fff200;
+      transform: scale(1.15);
+      outline: none;
+    }
+
+/* Hero Showcase Styles */
+.hero-showcase {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #ffd700;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 15px;
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.5);
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 450px;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+}
+
+.hero-text .highlight {
+  color: #ffd700;
+  text-shadow: 0 0 15px #ffd700;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #f0e68c;
+}
+
+.btn-hero {
+  background-color: #ffd700;
+  color: #000;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.btn-hero:hover,
+.btn-hero:focus {
+  background-color: #ffea00;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Hero Image */
+.hero-image {
+  flex: 1 1 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #ffd700aa;
+  animation: fadeInRight 1.5s ease forwards;
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Info Highlights Section */
+.info-highlights {
+  max-width: 1000px;
+  margin: 50px auto 80px auto;
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.info-highlights article {
+  flex: 1 1 280px;
+  background: #fff8dc;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.info-highlights article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+}
+
+.info-highlights i {
+  font-size: 48px;
+  color: #ffd700;
+  margin-bottom: 15px;
+  user-select: none;
+}
+
+.info-highlights h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #444;
+  font-weight: 700;
+}
+
+.info-highlights p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+  }
+  50% {
+    text-shadow: 0 0 30px #fff700, 0 0 50px #fff700;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+  .btn-hero {
+    padding: 14px 36px;
+    font-size: 1.1rem;
+  }
+  .info-highlights {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+/* Details Section */
+.details {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding: 25px 20px;
+  background-color: #fff8e1;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(255, 191, 0, 0.2);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.details h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffbf00;
+}
+
+.details ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: #444;
+}
+
+.details ul li {
+  margin: 10px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .showcase {
+    padding: 40px 15px;
+  }
+  .showcase-text h2 {
+    font-size: 2rem;
+  }
+  .showcase-text p {
+    font-size: 1rem;
+  }
+  .btn-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .showcase-text,
+  .showcase-image {
+    max-width: 100%;
+  }
+}
+
+    /* Section styles */
+    section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #000;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Carousel common */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: auto;
+      max-width: 1200px;
+    }
+
+    .products-carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      gap: 15px;
+    }
+
+    .product-card {
+      flex: 0 0 33.33%;
+      box-sizing: border-box;
+      border: 2px solid #ffbf00;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 15px #ffbf00aa;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-card h3 {
+      margin: 12px 0 6px;
+      color: #000;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #000;
+      color: #ffbf00;
+      border: none;
+      font-size: 30px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 5px;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 0;
+    }
+
+    .arrow-right {
+      right: 0;
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background-color: #ffbf00;
+      color: #000;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 12px;
+    }
+
+    .feature-box {
+      flex: 1 1 250px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .feature-box i {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .feature-box a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Order Section */
+    .order-contact {
+      text-align: center;
+    }
+
+    .whatsapp-order {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 28px;
+      background-color: #25D366;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.7);
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-order:hover {
+      background-color: #1ebe57;
+    }
+
+    /* About / FAQs */
+    .about p {
+      max-width: 700px;
+      margin: 10px auto;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    /* Testimonials */
+    .testimonials blockquote {
+      font-style: italic;
+      text-align: center;
+      margin: 15px auto;
+      max-width: 600px;
+      color: #444;
+      font-size: 1.15rem;
+      border-left: 4px solid #ffbf00;
+      padding-left: 12px;
+      margin-bottom: 30px;
+    }
+
+    /* Feedback form */
+    #customerMessage {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #ffbf00;
+      resize: vertical;
+      margin-top: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #sendMsgBtn {
+      display: block;
+      margin: 15px auto 0 auto;
+      background-color: #25D366;
+      color: white;
+      font-weight: 700;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.7);
+      transition: background-color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #sendMsgBtn:hover {
+      background-color: #1ebe57;
+    }
+
+    /* Updated Footer */
+    footer {
+      background: linear-gradient(90deg, #1a1a1a, #000000);
+      color: #ffbf00;
+      text-align: center;
+      padding: 30px 20px;
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      box-shadow: inset 0 1px 4px rgba(255, 191, 0, 0.2);
+      border-top: 3px solid #ffbf00;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-logo {
+      height: 55px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 5px #ffbf00);
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #ffbf00;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #fff200;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .product-card {
+        flex: 0 0 45%;
+      }
+      .features {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+      }
+      .animated-title {
+        font-size: 1.6rem;
+        min-width: auto;
+        padding: 10px 0;
+      }
+      .header-social a {
+        font-size: 20px;
+        margin-left: 10px;
+      }
+      .product-card {
+        flex: 0 0 100%;
+      }
+      .features {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    /* WhatsApp floating button */
+    #whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+      animation: pulse 2.5s infinite;
+      transition: background-color 0.3s ease;
+    }
+
+    #whatsapp-float:hover {
+      background-color: #1ebe57;
+    }
+
+    #whatsapp-float i {
+      color: white;
+      font-size: 30px;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Updated Header -->
+  <header>
+    <div class="header-logo" aria-label="ZHA Nova Logo">
+      <img src="ZHA.png" alt="ZHA Nova Logo" />
+    </div>
+    <h1 class="animated-title" tabindex="0">ZHA Nova Online Mart</h1>
+    <nav class="header-social" aria-label="Social Media Links">
+      <a href="#" title="Instagram" target="_blank" rel="noopener"><i class="ri-instagram-line"></i></a>
+      <a href="#" title="Facebook" target="_blank" rel="noopener"><i class="ri-facebook-circle-line"></i></a>
+      <a href="https://wa.me/923150265629" title="WhatsApp" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
+      <a href="#" title="TikTok" target="_blank" rel="noopener"><i class="ri-tiktok-line"></i></a>
+    </nav>
+  </header>
+
+  <!-- Hero Showcase Section -->
+<section class="hero-showcase" aria-label="Featured Products and Highlights">
+  <div class="hero-content">
+    <div class="hero-text" tabindex="0">
+      <h1>Upgrade Your Style with <span class="highlight">ZHA Nova</span></h1>
+      <p>Explore the latest trends, exclusive deals, and premium quality. Your one-stop online destination for fashion and gadgets.</p>
+      <a href="#order" class="btn-hero">Shop Now</a>
+    </div>
+    <div class="hero-image" aria-hidden="true">
+      <img src="https://i.ibb.co/yf0Bkfb/fashion-gadget-banner.jpg" alt="Fashion and Gadgets Banner" />
+    </div>
+  </div>
+</section>
+
+<!-- Info Highlights -->
+<section class="info-highlights" aria-label="Why Choose Us">
+  <div class="info-container">
+    <article>
+      <i class="ri-star-fill"></i>
+      <h3>Premium Quality</h3>
+      <p>Only the best brands and authentic products, guaranteed.</p>
+    </article>
+    <article>
+      <i class="ri-truck-fast-fill"></i>
+      <h3>Swift Delivery</h3>
+      <p>Receive your order within 2-4 business days anywhere in Pakistan.</p>
+    </article>
+    <article>
+      <i class="ri-customer-service-2-fill"></i>
+      <h3>24/7 Support</h3>
+      <p>We’re here to help you anytime with friendly customer service.</p>
+    </article>
+  </div>
+</section>
+
+
+
+  <!-- MEN'S SHIRTS -->
+  <section>
+    <h2>Men's Shirts</h2>
+    <div class="carousel-container">
+      <button class="arrow-btn arrow-left" onclick="moveSlide(-1,0)">&#8249;</button>
+      <div class="products-carousel" id="carousel-0">
+        <div class="product-card">
+          <img src="https://i.ibb.co/9YNfYx4/mens-shirt1.jpg" alt="Men's Shirt 1" />
+          <h3>Stylish Casual Shirt</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/0tTYgHT/mens-shirt2.jpg" alt="Men's Shirt 2" />
+          <h3>Formal Blue Shirt</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/V3yk0Gg/mens-shirt3.jpg" alt="Men's Shirt 3" />
+          <h3>Classic White Shirt</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/9YNfYx4/mens-shirt1.jpg" alt="Men's Shirt 4" />
+          <h3>Modern Fit Shirt</h3>
+        </div>
+      </div>
+      <button class="arrow-btn arrow-right" onclick="moveSlide(1,0)">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- WOMEN'S ITEMS -->
+  <section>
+    <h2>Women's Items</h2>
+    <div class="carousel-container">
+      <button class="arrow-btn arrow-left" onclick="moveSlide(-1,1)">&#8249;</button>
+      <div class="products-carousel" id="carousel-1">
+        <div class="product-card">
+          <img src="https://i.ibb.co/9N3qKts/women-item1.jpg" alt="Women's Item 1" />
+          <h3>Elegant Dress</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/x8dS0Vz/women-item2.jpg" alt="Women's Item 2" />
+          <h3>Casual Top</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/1nWqVqz/women-item3.jpg" alt="Women's Item 3" />
+          <h3>Stylish Jacket</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/9N3qKts/women-item1.jpg" alt="Women's Item 4" />
+          <h3>Floral Skirt</h3>
+        </div>
+      </div>
+      <button class="arrow-btn arrow-right" onclick="moveSlide(1,1)">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- GADGETS -->
+  <section>
+    <h2>Gadgets</h2>
+    <div class="carousel-container">
+      <button class="arrow-btn arrow-left" onclick="moveSlide(-1,2)">&#8249;</button>
+      <div class="products-carousel" id="carousel-2">
+        <div class="product-card">
+          <img src="https://i.ibb.co/6NY3nQm/gadget1.jpg" alt="Gadget 1" />
+          <h3>Wireless Headphones</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/RcTHkPq/gadget2.jpg" alt="Gadget 2" />
+          <h3>Smartwatch</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/LRTFJvM/gadget3.jpg" alt="Gadget 3" />
+          <h3>Bluetooth Speaker</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/6NY3nQm/gadget1.jpg" alt="Gadget 4" />
+          <h3>Portable Charger</h3>
+        </div>
+      </div>
+      <button class="arrow-btn arrow-right" onclick="moveSlide(1,2)">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- JEANS -->
+  <section>
+    <h2>Jeans</h2>
+    <div class="carousel-container">
+      <button class="arrow-btn arrow-left" onclick="moveSlide(-1,3)">&#8249;</button>
+      <div class="products-carousel" id="carousel-3">
+        <div class="product-card">
+          <img src="https://i.ibb.co/4m6G46Q/jeans1.jpg" alt="Jeans 1" />
+          <h3>Classic Blue Jeans</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/MgMttWN/jeans2.jpg" alt="Jeans 2" />
+          <h3>Ripped Jeans</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/4m6G46Q/jeans1.jpg" alt="Jeans 3" />
+          <h3>Slim Fit Jeans</h3>
+        </div>
+        <div class="product-card">
+          <img src="https://i.ibb.co/MgMttWN/jeans2.jpg" alt="Jeans 4" />
+          <h3>Black Jeans</h3>
+        </div>
+      </div>
+      <button class="arrow-btn arrow-right" onclick="moveSlide(1,3)">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-box">
+      <i class="ri-truck-line"></i>
+      <p>Fast Delivery</p>
+    </div>
+    <div class="feature-box">
+      <i class="ri-shield-check-line"></i>
+      <p>Quality Assurance</p>
+    </div>
+    <div class="feature-box">
+      <i class="ri-headphone-line"></i>
+      <p>24/7 Customer Support</p>
+    </div>
+    <div class="feature-box">
+      <i class="ri-shield-star-line"></i>
+      <p>Safe & Secure</p>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="order-contact" aria-label="Order Section">
+    <h2>Order Now</h2>
+    <p>Contact us on WhatsApp to place your order!</p>
+    <a href="https://wa.me/923150265629" class="whatsapp-order" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>ZHA Nova is a Pakistan-based online store delivering quality products at affordable prices. Our mission is to provide the best shopping experience with reliable customer support and fast delivery.</p>
+  </section>
+
+  <!-- FAQS -->
+  <section class="faqs">
+    <h2>FAQs</h2>
+    <p><strong>Q1:</strong> How long does delivery take?<br /> <strong>A:</strong> Delivery usually takes 3-5 business days within Pakistan.</p>
+    <p><strong>Q2:</strong> What payment methods do you accept?<br /> <strong>A:</strong> We accept cash on delivery, bank transfer, and various mobile wallets.</p>
+    <p><strong>Q3:</strong> Can I return a product?<br /> <strong>A:</strong> Yes, returns are accepted within 7 days of delivery if the product is unused and in original packaging.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>Customer Testimonials</h2>
+    <blockquote>"Amazing quality and fast delivery. Highly recommended!" — Ayesha</blockquote>
+    <blockquote>"Great customer service and authentic products." — Omar</blockquote>
+    <blockquote>"I love shopping here, always satisfied." — Sarah</blockquote>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section class="feedback">
+    <h2>Send Us Your Feedback</h2>
+    <textarea id="customerMessage" rows="5" placeholder="Type your message here..." aria-label="Customer message"></textarea>
+    <button id="sendMsgBtn" aria-label="Send feedback message">Send Message</button>
+  </section>
+
+  <!-- Updated Footer -->
+  <footer>
+    <div class="footer-content">
+      <img src="ZHA.png" alt="ZHA Nova Logo" class="footer-logo" />
+      <p>ZHA Nova Online Mart &copy; 2025</p>
+      <p>Designed by <a href="https://www.linkedin.com/in/muhammadzainnadeem" target="_blank" rel="noopener" style="color: #ffbf00; text-decoration: underline;">Muhammad Zain Nadeem</a></p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/923150265629" id="whatsapp-float" target="_blank" aria-label="WhatsApp Chat">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <script>
+    // Carousel functionality
+    const carousels = document.querySelectorAll('.products-carousel');
+    const totalItems = 4; // total cards per carousel
+    let currentIndices = [0, 0, 0, 0]; // current slide index for each carousel
+
+    function moveSlide(direction, carouselIndex) {
+      const carousel = document.getElementById('carousel-' + carouselIndex);
+      const maxIndex = totalItems - 3; // show 3 cards at a time
+      currentIndices[carouselIndex] += direction;
+
+      if (currentIndices[carouselIndex] < 0) {
+        currentIndices[carouselIndex] = 0;
+      }
+      if (currentIndices[carouselIndex] > maxIndex) {
+        currentIndices[carouselIndex] = maxIndex;
+      }
+      const translateX = -currentIndices[carouselIndex] * (carousel.children[0].offsetWidth + 15);
+      carousel.style.transform = `translateX(${translateX}px)`;
+    }
+
+    // Feedback message handler
+    document.getElementById('sendMsgBtn').addEventListener('click', () => {
+      const msg = document.getElementById('customerMessage').value.trim();
+      if (msg.length === 0) {
+        alert('Please enter a message before sending.');
+        return;
+      }
+      alert('Thank you for your feedback!');
+      document.getElementById('customerMessage').value = '';
+    });
+  </script>
+</body>
+</html>
